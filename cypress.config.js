@@ -5,6 +5,11 @@ module.exports = defineConfig({
     specPattern: "**/*.feature",
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
+
+      const version = config.env.version || 'qa'
+      config.env = require(`./cypress/config/${version}.json`)
+      config.baseUrl = config.env.baseUrl;
+      return config;
     },
   },
 });
