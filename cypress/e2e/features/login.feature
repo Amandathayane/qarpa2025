@@ -3,11 +3,6 @@
 #TELA DE LOGIN
 #login válido: user e senha válidos
 
-#user invalido e senha válida
-#senha inválido e user válido
-#user em branco e senha válida
-#senha em branco e user válido
-
 #user bloqueado e senha válida
 #senha com espaço e user bloqueado
 #user com problema e senha válida
@@ -39,16 +34,32 @@ Funcionalidade: Validação do login do saucedemo
     Cenário: Validação de Login com Diferentes Tipos de Usuário
         Quando eu preencho os campos de usuário e senha com as credenciais do usuário "usuario_valido"
         E eu clico no botão "LOGIN"
-        Então eu devo ser redirecionado para a tela de "Catálogo de produtos"
+        Então eu devo ser redirecionado para a tela de "Products"
 
 
+    Esquema do Cenário: Validação de login inválido - "<TipoCredencial>"
+        Dado que eu acesse a página de login
+        Quando eu preencho os campos de usuário ou senha com as credenciais inválidas do usuário "<TipoCredencial>"
+        E eu clico em "LOGIN"
+        Então o sistema irá informar que o login foi "<MensagemDeErroEsperada>"
 
-    #Esquema do Cenário: Validação de login inválido
-     #   Quando eu preencher o campo <login> e <senha> com dados inválidos
-      #  E eu clico em "LOGIN"
-       # Então o sistema irá informar que o login foi <Resultado>
+        Exemplos:
+            | TipoCredencial   | MensagemDeErroEsperada                                     |
+            | usuario_invalido | Epic sadface: Username and password do not match any user in this service |
+            | senha_invalida   | Epic sadface: Username and password do not match any user in this service |
+            | usuario_vazio    | Epic sadface: Username is required                         |
+            | senha_vazia      | Epic sadface: Password is required  |
 
-        #Exemplos: 
-        #| Perfil | ValorCredito | Renda | Resultado |
-        #| "User inválido, senha válida" | "123" | "secret_sauce" | "LOGIN NÃO EFETUADO, USER INVÁLIDO" |
-        #| "User válido, senha inválida" | "standard_user" | "123" | "LOGIN NÃO EFETUADO, SENHA INVÁLIDA" |
+
+    Esquema do Cenário: Validação de login inválido - "<TipoCredencial>"
+        Dado que eu acesse a página de login
+        Quando eu preencho os campos de usuário ou senha com as credenciais inválidas do usuário "<TipoCredencial>"
+        E eu clico em "LOGIN"
+        Então o sistema irá informar que o login foi "<TipoCredencial>"
+
+        Exemplos:
+            | TipoCredencial   |
+            | usuario_invalido |
+            | senha_invalida   |
+            | usuario_vazio    |
+            | senha_vazia      |

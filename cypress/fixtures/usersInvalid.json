@@ -1,24 +1,4 @@
 {
-    "usuario_valido": {
-        "username": "standard_user",
-        "password": "secret_sauce"
-    },
-    
-    "usuario_bloqueado": {
-        "username": "locked_out_user",
-        "password": "secret_sauce"
-    },
-    
-    "usuario_com_problema": {
-        "username": "problem_user",
-        "password": "secret_sauce"
-    },
-    
-    "usuario_com_glitch": {
-        "username": "performance_glitch_user",
-        "password": "secret_sauce"
-    },
-
     "usuario_invalido": {
         "username": "1234",
         "password": "secret_sauce",
