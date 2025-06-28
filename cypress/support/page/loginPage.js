@@ -17,6 +17,11 @@ class LoginPage {
     clicarLogin(){
         cy.get(ELEMENTS.btnLogin).click()
     }
+
+    loginAppAction(usuario,senha) {
+        cy.get(ELEMENTS.username).type(usuario)
+        cy.get(ELEMENTS.password).type(senha)
+    }
 }
 
 export default new LoginPage();

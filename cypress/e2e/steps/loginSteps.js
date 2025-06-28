@@ -23,7 +23,7 @@ When('eu preencho os campos de usuário e senha com as credenciais do usuário {
       throw new Error(`Usuário '${perfil_usuario}' não encontrado no fixture!`);
     }
     const user = usersData[perfil_usuario];
-    //LoginPage.login(user.username, user.password);
-    loginPage.preencherUsuario(user.username)
-    loginPage.preencherSenha(user.password)
+    loginPage.loginAppAction(user.username, user.password);
+   // loginPage.preencherUsuario(user.username)
+   // loginPage.preencherSenha(user.password)
   });
